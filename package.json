@@ -1,0 +1,22 @@
+{
+  "name": "react-learnings",
+  "version": "1.0.0",
+  "description": "Learning React in depth",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamarthanandKamble/React-Learnings.git"
+  },
+  "author": "Samarthanand Kamble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamarthanandKamble/React-Learnings/issues"
+  },
+  "homepage": "https://github.com/SamarthanandKamble/React-Learnings#readme",
+  "dependencies": {
+    "parcel": "^2.10.3"
+  }
+}
