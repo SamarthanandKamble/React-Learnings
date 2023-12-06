@@ -49,3 +49,20 @@
   align-items: center;
   margin: 10px;
 }
+
+.card-image-div {
+  width: 100%;
+}
+
+#card-hotel-name {
+  font-size: large;
+  font-weight: 800;
+  margin: 2px 0px;
+}
+#cuisine-name {
+  overflow-wrap: anywhere;
+}
+.card-item {
+  margin: 3px 0px;
+  width: 100%;
+}
