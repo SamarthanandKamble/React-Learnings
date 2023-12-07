@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <SearchBox />
+      {/* <SearchBox /> */}
       <CardContainer />
       <Footer />
     </>
