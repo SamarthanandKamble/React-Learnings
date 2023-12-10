@@ -1,4 +1,4 @@
-import { IMAGE_SRC } from "../utils/constant";
+import { RESTAURANT_IMAGE_SRC } from "../utils/constant";
 
 const Card = ({ cardData }) => {
   const { cloudinaryImageId, name, cuisines, costForTwo, avgRating } = cardData;
@@ -6,7 +6,7 @@ const Card = ({ cardData }) => {
     <div className="card-cnt">
       <div className="card-image-div">
         <img
-          src={IMAGE_SRC + cloudinaryImageId}
+          src={RESTAURANT_IMAGE_SRC + cloudinaryImageId}
           alt="food-image"
           className="food-image"
         />

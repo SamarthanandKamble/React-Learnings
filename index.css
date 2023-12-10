@@ -1,3 +1,14 @@
+* {
+  background-color: #000;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  position: relative;
+}
 .navbar {
   display: flex;
   flex-direction: row;
@@ -30,7 +41,7 @@
   width: 100%;
 }
 
-.search-div {
+.body {
   text-align: center;
 }
 .card-body {
@@ -61,11 +72,201 @@
 }
 
 .footer {
-  position: relative;
   display: flex;
   justify-content: center;
+  color: #f2f2f2;
+  height: 5vh;
 }
 .footer-text {
   position: absolute;
   bottom: 0;
+  color: #f2f2f2;
+  margin-top: auto;
+  padding: 10px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.top-restaurant-img,
+.cuisine-card-image {
+  height: 130px;
+  width: 120px;
+  margin: 1.5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.title-text {
+  margin-left: 10px;
+  text-align: left;
+  padding: 10px;
+}
+.multiple-cuisine {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.multiple-cuisine::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.cuisine-card {
+  margin: 1.2px;
+}
+
+.cuisine-card-image {
+  border-radius: 5px;
+}
+
+.rest-page-cnt {
+  border: 1px solid #fff;
+  padding: 2px;
+  width: 80vw;
+  margin: 0px auto;
+}
+
+.restaurant-info {
+  border: 2px dotted green;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.div-1 {
+  width: 50%;
+  text-align: start;
+  border: 1px solid #fff;
+}
+
+.restaurant-info .div-1:nth-child(even) {
+  text-align: end;
+}
+
+.price-for-two {
+  margin-left: 10px;
+}
+
+.coupons {
+  display: flex;
+  list-style-type: none;
+}
+.div-2 {
+  margin-bottom: 10px;
+}
+
+.row-1 {
+  flex-flow: wrap;
+  place-content: center space-around;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.cuisine-info {
+  margin-bottom: 10px;
+}
+.cuisine-title {
+  width: 80%;
+}
+.dropdown {
+  width: 20%;
+  text-align: end;
+}
+
+.cuisine-info-list {
+  list-style-type: none;
+}
+.coupons {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  padding: 5px;
+}
+.coupons-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.coupons-text {
+  width: 100%;
+  font-size: small;
+}
+.offer-text {
+  display: inline-block;
+  transform: rotate(-90deg);
+  font-size: small;
+  width: min-content;
+}
+
+.col-2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.offer-tag {
+  margin-right: 5px;
+  position: relative;
+}
+.offer-separate-bar {
+  transform: rotate(90deg);
+  border: 1px solid #fff;
+  margin-right: 5px;
+  position: absolute;
+  width: 100%;
+  left: 1.2rem;
+  top: 1rem;
+}
+
+.col-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  padding: 5px;
+  margin: 2px;
+  height: 5.5rem;
+}
+
+.cuisine-info {
+  position: relative;
+  padding: 5px;
+}
+
+.dropdown {
+  position: absolute;
+  border: 1px solid #fff;
+  top: 5px;
+  right: 10px;
+}
+
+.cuisine-img-div {
+  height: 140px;
+  width: 212px;
+  padding: 8px;
+}
+.cuisine-image {
+  height: 100%;
+  width: 100%;
+  border: 2px solid #fff;
+  border-radius: 5px;
 }
