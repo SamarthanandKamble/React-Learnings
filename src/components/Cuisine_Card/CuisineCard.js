@@ -1,5 +1,5 @@
 import React from "react";
-import { RESTAURANT_IMAGE_SRC } from "../utils/constant";
+import { RESTAURANT_IMAGE_SRC } from "../../utils/constant";
 const CuisineCard = ({ cuisineData }) => {
   return (
     <div className="cuisine-card">

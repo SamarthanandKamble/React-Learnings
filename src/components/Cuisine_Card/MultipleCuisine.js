@@ -1,5 +1,5 @@
 import CuisineCard from "./CuisineCard";
-import Title from "./Title";
+import Title from "../Title/Title";
 const MultipleCuisines = ({ data }) => {
   if (data === undefined || data.length <= 0) {
     return;

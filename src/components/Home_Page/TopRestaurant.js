@@ -1,11 +1,11 @@
-import { RESTAURANT_IMAGE_SRC } from "../utils/constant";
-import Title from "./Title";
+import { RESTAURANT_IMAGE_SRC } from "../../utils/constant";
+import Title from "../Title/Title";
 
 const TopRestaurant = ({ topRestaurant }) => {
   if (topRestaurant === undefined || topRestaurant.length <= 0) {
     return;
   }
-console.log(topRestaurant);
+
   return (
     <div className="top-restaurant">
       <Title title={"Top restaurant chains"} />

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import CardContainer from "./CardContainer.js";
-import { URL } from "../utils/constant.js";
-import MultipleCuisines from "./MultipleCuisine.js";
-import TopRestaurant from "./TopRestaurant.js";
+import CardContainer from "../Cuisine_Card/CardContainer.js";
+import { URL } from "../../utils/constant.js";
+import MultipleCuisines from "../Cuisine_Card/MultipleCuisine.js";
+import TopRestaurant from "../Home_Page/TopRestaurant.js";
 
 const Body = () => {
   let [searchRestaurant, setSearchRestaurant] = useState("");

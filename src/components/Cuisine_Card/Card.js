@@ -1,4 +1,4 @@
-import { RESTAURANT_IMAGE_SRC } from "../utils/constant";
+import { RESTAURANT_IMAGE_SRC } from "../../utils/constant";
 
 const Card = ({ cardData }) => {
   const { cloudinaryImageId, name, cuisines, costForTwo, avgRating } = cardData;
