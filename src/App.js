@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Navbar/Header";
 import Body from "./components/Body/Body";
@@ -7,14 +8,21 @@ import About from "./components/Home_Page/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error_Page/Error";
 import RestaurantPage from "./components/Restaurant_Menu/RestaurantPage";
-
+import GetUserLocation from "./components/GetUserLocation/GetUserLocation";
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
+    <div>
+      {isAuthenticated ? (
+        <>
+          <Header />
+          <Outlet />
+          <Footer />
+        </>
+      ) : (
+        <GetUserLocation isAuthenticated={isAuthenticated}/>
+      )}
+    </div>
   );
 };
 
@@ -28,6 +36,10 @@ const router = createBrowserRouter([
         element: <Body />,
       },
       {
+        path: "/home",
+        element: <Body />,
+      },
+      {
         path: "/About",
         element: <About />,
       },
@@ -37,6 +49,10 @@ const router = createBrowserRouter([
       },
     ],
     errorElement: <Error />,
+  },
+  {
+    path: "/getlocation",
+    element: <GetUserLocation />,
   },
 ]);
 

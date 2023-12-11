@@ -3,6 +3,7 @@ import CardContainer from "../Cuisine_Card/CardContainer.js";
 import { URL } from "../../utils/constant.js";
 import MultipleCuisines from "../Cuisine_Card/MultipleCuisine.js";
 import TopRestaurant from "../Home_Page/TopRestaurant.js";
+import { latitude, longitude } from "../GetUserLocation/GetUserCoordinates.js";
 
 const Body = () => {
   let [searchRestaurant, setSearchRestaurant] = useState("");
@@ -10,7 +11,7 @@ const Body = () => {
   const [filterCardData, setFilterCardData] = useState([]);
   const [multipleCuisines, setMultipleCuisines] = useState([]);
   const [topRestaurants, setTopRestaurants] = useState([]);
-
+  console.log("Body : ", latitude, longitude);
   useEffect(() => {
     fetchData();
   }, []);

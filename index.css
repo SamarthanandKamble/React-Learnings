@@ -179,6 +179,7 @@ body {
 }
 
 .cuisine-info {
+  width: 70%;
   margin-bottom: 10px;
 }
 .cuisine-title {
@@ -247,7 +248,7 @@ body {
   height: 5.5rem;
 }
 
-.cuisine-info {
+.cuisine-info-cnt {
   position: relative;
   padding: 5px;
 }
@@ -269,4 +270,13 @@ body {
   width: 100%;
   border: 2px solid #fff;
   border-radius: 5px;
+}
+
+.city-suggestions {
+  padding: 20px;
+  border: 1px solid #fff;
+}
+
+.city-list {
+  border: 1px solid #fff;
 }
