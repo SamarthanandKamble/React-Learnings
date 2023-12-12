@@ -159,10 +159,6 @@ body {
   margin-left: 10px;
 }
 
-.coupons {
-  display: flex;
-  list-style-type: none;
-}
 .div-2 {
   margin-bottom: 10px;
 }
@@ -200,6 +196,9 @@ body {
   align-items: center;
   position: relative;
   padding: 5px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  border: 1px solid #fff;
 }
 .coupons-list {
   display: flex;
@@ -209,8 +208,8 @@ body {
   flex-direction: row;
 }
 .coupons-text {
-  width: 100%;
   font-size: small;
+  margin-right: 5px;
 }
 .offer-text {
   display: inline-block;
@@ -226,15 +225,16 @@ body {
 .offer-tag {
   margin-right: 5px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.2px solid #fff;
 }
 .offer-separate-bar {
-  transform: rotate(90deg);
-  border: 1px solid #fff;
-  margin-right: 5px;
+  z-index: 1;
+  height: -webkit-fill-available;
   position: absolute;
-  width: 100%;
-  left: 1.2rem;
-  top: 1rem;
+  left: 2.2rem;
 }
 
 .col-1 {
@@ -250,7 +250,10 @@ body {
 
 .cuisine-info-cnt {
   position: relative;
-  padding: 5px;
+  padding: 10px;
+  width: 100%;
+  /* background-color: #f2f2f2; */
+  border: 1px dotted greenyellow;
 }
 
 .dropdown {
@@ -279,4 +282,30 @@ body {
 
 .city-list {
   border: 1px solid #fff;
+}
+.cuisine-title-cn {
+  width: 100%;
+}
+
+.cuisine-title-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #fff;
+  background-color: #f2f2f2;
+}
+
+.coupon-cnt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item-coupon {
+  width: 100%;
 }

@@ -11,7 +11,7 @@ const Body = () => {
   const [filterCardData, setFilterCardData] = useState([]);
   const [multipleCuisines, setMultipleCuisines] = useState([]);
   const [topRestaurants, setTopRestaurants] = useState([]);
-  console.log("Body : ", latitude, longitude);
+  // console.log("Body : ", latitude, longitude);
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,8 +19,9 @@ const Body = () => {
   async function fetchData() {
     let data = await fetch(URL);
     let result = await data.json();
-    // console.log(result?.data?.cards[2].card.card.gridElements?.infoWithStyle
-    //   ?.restaurants);
+    // console.log(
+    //   result?.data?.cards[2].card.card.gridElements?.infoWithStyle?.restaurants
+    // );
     setCardData(
       result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -29,12 +30,19 @@ const Body = () => {
       result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+    // console.log(
+    //   result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants
+    // );
     setMultipleCuisines(
       result?.data?.cards[1].card.card.gridElements.infoWithStyle.info
     );
     setTopRestaurants(
       result?.data?.cards[2].card.card.gridElements?.infoWithStyle?.restaurants
     );
+    // console.log(
+    //   result?.data?.cards[2].card.card.gridElements?.infoWithStyle?.restaurants
+    // );
   }
 
   function checkForTheRestaurant(e) {

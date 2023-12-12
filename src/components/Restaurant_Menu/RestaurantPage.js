@@ -4,14 +4,12 @@ import { useParams } from "react-router-dom";
 import CouponsPage from "./CouponsPage";
 import RestaurantBriefInfo from "./RestaurantBriefInfo";
 import CuisineTitle from "./CuisineTitle";
-
-
 const RestaurantPage = () => {
   let { resId } = useParams();
+
   const [restaurantData, setRestaurantData] = useState([]);
   const [couponsData, setCouponsData] = useState([]);
   const [cuisineTitleList, setCuisineTitleList] = useState([]);
-  
   useEffect(() => {
     fetchRestaurantMenuPage();
   }, []);
@@ -39,7 +37,6 @@ const RestaurantPage = () => {
   if (resId === undefined) {
     return;
   }
-  
   return (
     <div className="rest-page-cnt">
       <RestaurantBriefInfo restaurantData={restaurantData} />
