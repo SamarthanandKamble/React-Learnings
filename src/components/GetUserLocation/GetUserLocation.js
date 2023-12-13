@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SuggestedCitiesData from "./SuggestedCitiesData";
 
-const GetUserLocation = ({ isAuth }) => {
+export const GetUserLocation = ({ setUserLocation, setCoord }) => {
   const [city, setCity] = useState("");
   const [citySuggestions, setCitySuggestions] = useState([]);
 
@@ -17,8 +17,6 @@ const GetUserLocation = ({ isAuth }) => {
       let { data } = await result.json();
 
       setCitySuggestions(data);
-    } else {
-      console.log("city is empty string");
     }
   }
 
@@ -32,12 +30,14 @@ const GetUserLocation = ({ isAuth }) => {
       />
 
       {citySuggestions.length > 0 ? (
-        <SuggestedCitiesData cities={citySuggestions} />
+        <SuggestedCitiesData
+          cities={citySuggestions}
+          setUserLocation={setUserLocation}
+          setCoord={setCoord}
+        />
       ) : (
         ""
       )}
     </div>
   );
 };
-
-export default GetUserLocation;

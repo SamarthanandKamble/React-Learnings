@@ -14,7 +14,6 @@ export default CouponData;
 
 export function OfferCoupon(CouponData) {
   return ({ info }) => {
-    console.log("props", info);
     return (
       <div className="offer-tag">
         <span className="offer-text">{info.offerTag}</span>

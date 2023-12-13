@@ -1,7 +1,7 @@
 import CouponData, { OfferCoupon } from "./CouponData";
 
 const CouponsPage = ({ couponsData }) => {
-  console.log("hell", couponsData);
+
   const OfferCouponData = OfferCoupon(CouponData);
 
   return (

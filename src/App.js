@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Navbar/Header";
 import Body from "./components/Body/Body";
@@ -8,35 +8,47 @@ import About from "./components/Home_Page/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error_Page/Error";
 import RestaurantPage from "./components/Restaurant_Menu/RestaurantPage";
-import GetUserLocation from "./components/GetUserLocation/GetUserLocation";
+import { GetUserLocation } from "./components/GetUserLocation/GetUserLocation";
+import CoordinateContext from "./utils/CoordinateContext";
+
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [userLocation, setUserLocation] = useState(true);
+  const [coord, setCoord] = useState({
+    lat: "lat",
+    lng: "lng",
+  });
+
   return (
-    <div>
-      {isAuthenticated ? (
-        <>
-          <Header />
-          <Outlet />
-          <Footer />
-        </>
-      ) : (
-        <GetUserLocation isAuthenticated={isAuthenticated}/>
-      )}
-    </div>
+    <CoordinateContext.Provider value={{ lat: coord.lat, lng: coord.lng }}>
+      <div>
+        {userLocation ? (
+          <GetUserLocation
+            setUserLocation={setUserLocation}
+            setCoord={setCoord}
+          />
+        ) : (
+          <>
+            <Header />
+            <Outlet />
+            <Footer />
+          </>
+        )}
+      </div>
+    </CoordinateContext.Provider>
   );
 };
 
 const router = createBrowserRouter([
+  {
+    path: "/location",
+    element: <GetUserLocation />,
+  },
   {
     path: "/",
     element: <App />,
     children: [
       {
         path: "/",
-        element: <Body />,
-      },
-      {
-        path: "/home",
         element: <Body />,
       },
       {
@@ -49,10 +61,6 @@ const router = createBrowserRouter([
       },
     ],
     errorElement: <Error />,
-  },
-  {
-    path: "/getlocation",
-    element: <GetUserLocation />,
   },
 ]);
 

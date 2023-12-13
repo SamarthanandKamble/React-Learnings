@@ -3,7 +3,7 @@ import { RESTAURANT_PAGE_URL } from "../../utils/constant";
 import { useParams } from "react-router-dom";
 import CouponsPage from "./CouponsPage";
 import RestaurantBriefInfo from "./RestaurantBriefInfo";
-import CuisineTitle from "./CuisineTitle";
+import CuisineHeader from "./CuisineHeader";
 const RestaurantPage = () => {
   let { resId } = useParams();
 
@@ -50,7 +50,7 @@ const RestaurantPage = () => {
         <CouponsPage couponsData={couponsData} />
       </div>
       <div>
-        <CuisineTitle cuisineList={cuisineTitleList} />
+        <CuisineHeader cuisineList={cuisineTitleList} />
       </div>
     </div>
   );

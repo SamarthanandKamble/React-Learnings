@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GetUserCoordinates from "./GetUserCoordinates";
 
-const SuggestedCitiesData = ({ cities }) => {
+const SuggestedCitiesData = ({ cities, setUserLocation, setCoord }) => {
   const [cityPlaceId, setCityPlaceId] = useState("");
 
   function getCityString(e) {
@@ -22,7 +22,11 @@ const SuggestedCitiesData = ({ cities }) => {
       {cities.length > 0
         ? cities.map((city, index) => <p key={index}>{city.description}</p>)
         : ""}
-      <GetUserCoordinates id={cityPlaceId} />
+      <GetUserCoordinates
+        id={cityPlaceId}
+        setUserLocation={setUserLocation}
+        setCoord={setCoord}
+      />
     </div>
   );
 };

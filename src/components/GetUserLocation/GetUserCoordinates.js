@@ -1,28 +1,33 @@
-import { useState } from "react";
-const GetUserCoordinates = ({ id }) => {
-  let [latitude, setLatitude] = useState("");
-  let [longitude, setLongitude] = useState("");
+import { useState, createContext } from "react";
 
-  const getUserCoordinates = async () => {
+const GetUserCoordinates = ({ id, setUserLocation, setCoord }) => {
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+
+  const getCoordinates = async () => {
     if (id) {
       let result = await fetch(
         `https://www.swiggy.com/dapi/misc/address-recommend?place_id=${id}`
       );
       let { data } = await result.json();
       const { lat, lng } = data[0]?.geometry?.location;
-      console.log("Coord compo:", lat, lng);
       setLatitude(lat);
       setLongitude(lng);
+      setUserLocation(false);
+      let updateCoordinates = {
+        lat: lat,
+        lng: lng,
+      };
+      setCoord(updateCoordinates);
     }
   };
-  if (id) {
-    getUserCoordinates();
+  if (id && setUserLocation) {
+    getCoordinates();
   } else {
     return;
   }
 
   return <></>;
 };
-export let latitude;
-export let longitude;
+
 export default GetUserCoordinates;

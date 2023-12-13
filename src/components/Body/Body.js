@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import CardContainer from "../Cuisine_Card/CardContainer.js";
-import { URL } from "../../utils/constant.js";
+import { URL1, URL2 } from "../../utils/constant.js";
 import MultipleCuisines from "../Cuisine_Card/MultipleCuisine.js";
 import TopRestaurant from "../Home_Page/TopRestaurant.js";
-import { latitude, longitude } from "../GetUserLocation/GetUserCoordinates.js";
+import CoordinateContext from "../../utils/CoordinateContext.js";
 
 const Body = () => {
   let [searchRestaurant, setSearchRestaurant] = useState("");
@@ -16,8 +16,11 @@ const Body = () => {
     fetchData();
   }, []);
 
+  const { lat, lng } = useContext(CoordinateContext);
+  console.log("lat : ", lat, "lng : ", lng);
+
   async function fetchData() {
-    let data = await fetch(URL);
+    let data = await fetch(`${URL1}lat=${lat}&lng=${lng}`);
     let result = await data.json();
     // console.log(
     //   result?.data?.cards[2].card.card.gridElements?.infoWithStyle?.restaurants
