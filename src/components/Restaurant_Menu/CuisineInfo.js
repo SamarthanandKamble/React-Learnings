@@ -1,6 +1,15 @@
 import { CUISINE_IMAGE_SRC } from "../../utils/constant";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  emptyCart,
+} from "../../utils/Redux/cartSlice";
 
 const CuisineInfo = ({ itemCards }) => {
+
+  const dispatch = useDispatch();
+
 
   return (
     itemCards &&
@@ -20,6 +29,14 @@ const CuisineInfo = ({ itemCards }) => {
               src={CUISINE_IMAGE_SRC + card.info.imageId}
               className="cuisine-image"
             />
+            <button
+              className="add-to-cart-btn"
+              onClick={() => {
+                dispatch(addToCart(card.info));
+              }}
+            >
+              Add
+            </button>
           </div>
         </div>
       </div>

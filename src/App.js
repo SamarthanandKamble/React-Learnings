@@ -10,39 +10,40 @@ import Error from "./components/Error_Page/Error";
 import RestaurantPage from "./components/Restaurant_Menu/RestaurantPage";
 import { GetUserLocation } from "./components/GetUserLocation/GetUserLocation";
 import CoordinateContext from "./utils/CoordinateContext";
+import { cartStore } from "./utils/Redux/cartStore";
+import { Provider } from "react-redux";
+import CartPage from "./components/Restaurant_Menu/CartPage";
 
 const App = () => {
-  const [userLocation, setUserLocation] = useState(true);
+  const [userLocation, setUserLocation] = useState(false);
   const [coord, setCoord] = useState({
     lat: "lat",
     lng: "lng",
   });
 
   return (
-    <CoordinateContext.Provider value={{ lat: coord.lat, lng: coord.lng }}>
-      <div>
-        {userLocation ? (
-          <GetUserLocation
-            setUserLocation={setUserLocation}
-            setCoord={setCoord}
-          />
-        ) : (
-          <>
-            <Header />
-            <Outlet />
-            <Footer />
-          </>
-        )}
-      </div>
-    </CoordinateContext.Provider>
+    <Provider store={cartStore}>
+      <CoordinateContext.Provider value={{ lat: coord.lat, lng: coord.lng }}>
+        <div>
+          {userLocation ? (
+            <GetUserLocation
+              setUserLocation={setUserLocation}
+              setCoord={setCoord}
+            />
+          ) : (
+            <>
+              <Header />
+              <Outlet />
+              <Footer />
+            </>
+          )}
+        </div>
+      </CoordinateContext.Provider>
+    </Provider>
   );
 };
 
 const router = createBrowserRouter([
-  {
-    path: "/location",
-    element: <GetUserLocation />,
-  },
   {
     path: "/",
     element: <App />,
@@ -59,8 +60,16 @@ const router = createBrowserRouter([
         path: `/restaurant/:resId`,
         element: <RestaurantPage />,
       },
+      {
+        path: `/cart`,
+        element: <CartPage />,
+      },
     ],
     errorElement: <Error />,
+  },
+  {
+    path: "/location",
+    element: <GetUserLocation />,
   },
 ]);
 

@@ -16,6 +16,9 @@ body {
   align-content: center;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .nav-ul {
@@ -72,17 +75,11 @@ body {
 }
 
 .footer {
-  display: flex;
-  justify-content: center;
-  color: #f2f2f2;
-  height: 5vh;
-}
-.footer-text {
-  position: absolute;
-  bottom: 0;
-  color: #f2f2f2;
   margin-top: auto;
   padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .card-container {
@@ -269,6 +266,7 @@ body {
   height: 130px;
   width: 200px;
   padding: 8px;
+  position: relative;
 }
 .cuisine-image {
   height: 100%;
@@ -309,4 +307,32 @@ body {
 
 .item-coupon {
   width: 100%;
+}
+
+.add-to-cart-btn {
+  position: absolute;
+  bottom: 0;
+  left: 38%;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+#item-name,
+#item-qty {
+  width: 50%;
+}
+
+#item-price {
+  width: 100%;
+}
+.item-qty-btn {
+  padding: 5px;
 }
