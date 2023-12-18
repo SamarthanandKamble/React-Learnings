@@ -5,7 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+
+.main-container {
+  padding-bottom: 60px; /* Adjust this value based on your footer height */
   min-height: 100vh;
   position: relative;
 }
@@ -75,11 +77,18 @@ body {
 }
 
 .footer {
-  margin-top: auto;
+  margin-top: 10px;
   padding: 10px;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.footer-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
 }
 
 .card-container {
