@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SuggestedCitiesData from "./SuggestedCitiesData";
 
-export const GetUserLocation = ({ setUserLocation, setCoord }) => {
+export const GetUserLocation = () => {
   const [city, setCity] = useState("");
   const [citySuggestions, setCitySuggestions] = useState([]);
 
@@ -30,13 +30,9 @@ export const GetUserLocation = ({ setUserLocation, setCoord }) => {
       />
 
       {citySuggestions.length > 0 ? (
-        <SuggestedCitiesData
-          cities={citySuggestions}
-          setUserLocation={setUserLocation}
-          setCoord={setCoord}
-        />
+        <SuggestedCitiesData cities={citySuggestions} />
       ) : (
-        ""
+        console.log("this is else part for /GetUserLocation")
       )}
     </div>
   );

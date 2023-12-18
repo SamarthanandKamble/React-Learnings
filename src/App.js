@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Navbar/Header";
 import Body from "./components/Body/Body";
@@ -9,36 +8,27 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error_Page/Error";
 import RestaurantPage from "./components/Restaurant_Menu/RestaurantPage";
 import { GetUserLocation } from "./components/GetUserLocation/GetUserLocation";
-import CoordinateContext from "./utils/CoordinateContext";
 import { cartStore } from "./utils/Redux/Store";
 import { Provider } from "react-redux";
 import CartPage from "./components/Restaurant_Menu/CartPage";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const [userLocation, setUserLocation] = useState(true);
-  const [coord, setCoord] = useState({
-    lat: "lat",
-    lng: "lng",
-  });
-
+  const isPlaceIdAvailable = false;
+  console.log("App.js rendered");
   return (
     <Provider store={cartStore}>
-      <CoordinateContext.Provider value={{ lat: coord.lat, lng: coord.lng }}>
-        <div className="main-container">
-          {userLocation ? (
-            <GetUserLocation
-              setUserLocation={setUserLocation}
-              setCoord={setCoord}
-            />
-          ) : (
-            <>
-              <Header />
-              <Outlet />
-              <Footer />
-            </>
-          )}
-        </div>
-      </CoordinateContext.Provider>
+      <div className="main-container">
+        {isPlaceIdAvailable ? (
+          <>
+            <Header />
+            <Outlet />
+            <Footer />
+          </>
+        ) : (
+          <GetUserLocation />
+        )}
+      </div>
     </Provider>
   );
 };
@@ -53,22 +43,22 @@ const router = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/About",
+        path: "About",
         element: <About />,
       },
       {
-        path: `/restaurant/:resId`,
+        path: `restaurant/:resId`,
         element: <RestaurantPage />,
       },
       {
-        path: `/cart`,
+        path: `cart`,
         element: <CartPage />,
       },
     ],
     errorElement: <Error />,
   },
   {
-    path: "/location",
+    path: "/",
     element: <GetUserLocation />,
   },
 ]);
