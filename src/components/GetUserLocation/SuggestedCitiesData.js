@@ -25,7 +25,7 @@ const SuggestedCitiesData = ({ cities }) => {
       localStorage.setItem("placeId", JSON.stringify(data));
     }
 
-    navigate("/about");
+    navigate("/");
 
     localStorage.setItem("selectedCity", JSON.stringify(searchCity));
   }

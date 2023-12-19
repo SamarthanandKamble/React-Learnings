@@ -14,7 +14,7 @@ import CartPage from "./components/Restaurant_Menu/CartPage";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const isPlaceIdAvailable = false;
+  const isPlaceIdAvailable = true;
   console.log("App.js rendered");
   return (
     <Provider store={cartStore}>
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/",
+    path: "/getLocation",
     element: <GetUserLocation />,
   },
 ]);

@@ -7,9 +7,7 @@ import {
 } from "../../utils/Redux/cartSlice";
 
 const CuisineInfo = ({ itemCards }) => {
-
   const dispatch = useDispatch();
-
 
   return (
     itemCards &&

@@ -4,7 +4,7 @@ import CuisineInfo from "./CuisineInfo";
 const CuisineTitle = ({ data }) => {
   const [isCuisineListOpen, setIsCuisineListOpen] = useState(false);
 
-  // console.log("cuisine title data :", data);
+  console.log("cuisine title data :", data);
 
   function checkIfOpen() {
     setIsCuisineListOpen(!isCuisineListOpen);
